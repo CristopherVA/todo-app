@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useForm } from "../components/hook/useForm";
 import "./styles/SearchTodo.css";
 
@@ -15,7 +16,7 @@ export const SearchTodo = ({ handleAdd }) => {
     }
 
     const newTodo = {
-      id: new Date().getTime(),
+      id: uuidv4(),
       desc: description,
       done: false,
     };
@@ -26,28 +27,22 @@ export const SearchTodo = ({ handleAdd }) => {
 
   return (
     <div className="search-input">
-      <h2>Add Todos</h2>
+     
 
       <form onSubmit={handleSubmit}>
-        <div className="row">
-          <div className="col-8">
-            <input
-              className="form-control"
-              type="text"
-              name="description"
-              value={description}
-              onChange={handleInputChange}
-              placeholder="Save something..."
-              autoComplete="off"
-            />
-          </div>
+        <input
+          className="form-control"
+          type="text"
+          name="description"
+          value={description}
+          onChange={handleInputChange}
+          placeholder="Save something..."
+          autoComplete="off"
+        />
 
-          <div className="col-4">
-            <button type="submit" className=" btn btn-success form-control">
-              Add
-            </button>
-          </div>
-        </div>
+        <button type="submit" className=" btn btn-success form-control mt-3">
+          Add
+        </button>
       </form>
     </div>
   );

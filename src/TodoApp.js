@@ -27,9 +27,13 @@ const TodoApp = () => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
 
+
   const handleDelete = (todoId) => {
+
+    console.log('ID:', todoId)
+
     const action = {
-      type: "delete",
+      type: 'delete',
       payload: todoId,
     };
 
@@ -37,8 +41,11 @@ const TodoApp = () => {
   };
 
   const handleAdd = (newTodo) => {
+
+  
+
     dispatch({
-      type: "add",
+      type: 'add',
       payload: newTodo,
     });
   };
